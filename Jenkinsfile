@@ -12,6 +12,7 @@ pipeline {
     tools {
         maven 'maven-3.9'
     }
+
     enviroment {
         IMAGE_NAME = 'jadedjelly/mod9demo-app:java-maven-1.0'
     }
@@ -33,7 +34,7 @@ pipeline {
             }
         }
 
-        stage("deploy")
+        stage("deploy") {
             steps {
                 script {
                     echo 'deploying docker image to EC2...'
@@ -43,6 +44,7 @@ pipeline {
                     }
                 }
             }
+        }
 //        }
 //        stage('commit version update'){
 //            steps {
