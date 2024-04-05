@@ -58,10 +58,10 @@ pipeline {
                 }
             }
         }
-        stage('commit version update'){
-            steps {
-                script {
-                    echo "Increment version below commented out"
+//        stage('commit version update'){
+//            steps {
+//                script {
+//                    echo "Increment version below commented out"
 //                    withCredentials([usernamePassword(credentialsId: 'github-creds', passwordVariable: 'PASS', usernameVariable: 'USER')]){
 //                        sh 'git remote set-url origin https://$USER:$PASS@github.com/jadedjelly/java-maven-app.git'
 //                        sh 'git add .'
@@ -69,6 +69,6 @@ pipeline {
 //                        sh 'git push origin HEAD:jenkins-jobs'
 //                    }
                 }
-            }
-        }
-    }
+//            }
+//        }
+//    }
