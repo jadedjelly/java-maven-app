@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-library identifier: 'jenkins-shared-library@master', retriever: modernSCM(
+library identifier: 'jenkins-shared-library@main', retriever: modernSCM(
     [$class: 'GitSCMSource',
     remote: 'https://github.com/jadedjelly/jenkins-shared-library.git',
     credentialsID: 'github-creds'
@@ -42,11 +42,11 @@ pipeline {
                 }
             }
         } 
-//        stage("deploy") {
-//            steps {
-//                script {
-//                    echo 'deploying docker image to EC2...'
-//
+        stage("deploy")
+           steps {
+                script {
+                    echo 'deploying docker image to EC2...'
+
 //                    def shellCmd = "bash ./server-cmds.sh ${IMAGE_NAME}"
 //                    def ec2Instance = "ec2-user@18.184.54.160"
 //
@@ -55,20 +55,20 @@ pipeline {
 //                        sh "scp docker-compose.yaml ${ec2Instance}:/home/ec2-user"
 //                        sh "ssh -o StrictHostKeyChecking=no ${ec2Instance} ${shellCmd}"
 //                    }
-//                }
-//            }
-//        }
-//        stage('commit version update'){
-//            steps {
-//                script {
-//                    withCredentials([usernamePassword(credentialsId: 'gitlab-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]){
-//                        sh 'git remote set-url origin https://$USER:$PASS@gitlab.com/twn-devops-bootcamp/latest/09-AWS/java-maven-app.git'
+                }
+            }
+        }
+        stage('commit version update'){
+            steps {
+                script {
+                    echo "Increment version below commented out"
+//                    withCredentials([usernamePassword(credentialsId: 'github-creds', passwordVariable: 'PASS', usernameVariable: 'USER')]){
+//                        sh 'git remote set-url origin https://$USER:$PASS@github.com/jadedjelly/java-maven-app.git'
 //                        sh 'git add .'
 //                        sh 'git commit -m "ci: version bump"'
 //                        sh 'git push origin HEAD:jenkins-jobs'
 //                    }
-//                }
-//            }
-//        }
+                }
+            }
+        }
     }
-}
