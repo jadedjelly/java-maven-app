@@ -41,7 +41,7 @@ pipeline {
 //                    dockerPush(env.IMAGE_NAME)
 //                }
 //            }
-//        } 
+//        }
 //        stage("deploy")
 //           steps {
 //                script {
