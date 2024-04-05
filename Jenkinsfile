@@ -13,7 +13,7 @@ pipeline {
         maven 'maven-3.9'
     }
 
-    enviroment {
+    environment {
         IMAGE_NAME = 'jadedjelly/mod9demo-app:java-maven-1.0'
     }
     stages {
