@@ -34,15 +34,15 @@ pipeline {
         }
 
         stage("deploy")
-        steps {
-            script {
-                echo 'deploying docker image to EC2...'
-                def dockerCmd = "docker run -p 8080:8080 -d ${IMAGE_NAME}"
-                sshagent(['ec2-server-key']) {
-                    sh "ssh -o StrictHostKeyChecking=no ec2-user@18.202.21.18 ${dockerCmd}"
+            steps {
+                script {
+                    echo 'deploying docker image to EC2...'
+                    def dockerCmd = "docker run -p 8080:8080 -d ${IMAGE_NAME}"
+                    sshagent(['ec2-server-key']) {
+                        sh "ssh -o StrictHostKeyChecking=no ec2-user@18.202.21.18 ${dockerCmd}"
+                    }
                 }
             }
-        }
 //        }
 //        stage('commit version update'){
 //            steps {
