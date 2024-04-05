@@ -42,10 +42,10 @@ pipeline {
                 }
             }
         } 
-        stage("deploy")
-           steps {
-                script {
-                    echo 'deploying docker image to EC2...'
+//        stage("deploy")
+//           steps {
+//                script {
+//                    echo 'deploying docker image to EC2...'
 
 //                    def shellCmd = "bash ./server-cmds.sh ${IMAGE_NAME}"
 //                    def ec2Instance = "ec2-user@18.184.54.160"
@@ -57,7 +57,7 @@ pipeline {
 //                    }
                 }
             }
-        }
+//        }
 //        stage('commit version update'){
 //            steps {
 //                script {
@@ -68,7 +68,7 @@ pipeline {
 //                        sh 'git commit -m "ci: version bump"'
 //                        sh 'git push origin HEAD:jenkins-jobs'
 //                    }
-                }
+//}
 //            }
 //        }
 //    }
