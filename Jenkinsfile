@@ -26,7 +26,7 @@ pipeline {
                     // sshagent(['ec2-server-key']) {
                     //   sh "ssh -o StrictHostKeyChecking=no ec2-user@18.184.54.160 ${dockerCmd}"      
                     }
-                }
+                //  }
             }
         }               
     }
